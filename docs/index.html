@@ -29,30 +29,45 @@
 <script>
   // Docsify
   window.$docsify = {
-    name: 'insurance_proposition_with_physical_activity_data',
-    homepage: 'https://raw.githubusercontent.com/stchau4work/insurance_proposition_with_physical_activity_data/master/README.md',
-    repo: 'https://github.com/stchau4work/insurance_proposition_with_physical_activity_data',
-    loadSidebar: true,
-    subMaxLevel: 4,
-    themeColor: '#3F51B5',
+    // GENERAL
+    // -----------------------------------------------------------------
+    name       : 'insurance_proposition_with_physical_activity_data',
+    repo       : 'https://github.com/stchau4work/insurance_proposition_with_physical_activity_data',
+    homepage   : 'https://raw.githubusercontent.com/stchau4work/insurance_proposition_with_physical_activity_data/master/README.md',
+    loadSidebar: 'sidebar.md',
+
+    // NAVIGATION
+    // -----------------------------------------------------------------
+    auto2top   : true,
+    maxLevel   : 3,
+    subMaxLevel: 3,
+
+    // PLUGINS
+    // -----------------------------------------------------------------
     executeScript: true,
-    auto2top: true,
     search: {
-      placeholder: 'Search'
+      depth      : 3,
+      noData     : 'No results!',
+      placeholder: 'Search...'
     },
-      plugins: [
-    function(hook, vm) {
-      hook.doneEach(function(html, next) {
-        MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-        MathJax.Hub.Config({
-          tex2jax: {
-            inlineMath: [ ['$', '$'] ],
-            displayMath: [ ['$$', '$$']]
-          }
-        });
-      })
-    }
-  ]
+    plugins: [
+      // Restores initial <title>
+      function persistTitle(hook, vm) {
+        var titleElm = document.querySelector('title');
+        var rootTitle = titleElm && titleElm.textContent;
+        var pageTitlePrefix = window.$docsify.name ? window.$docsify.name + ' - ' : '';
+
+        if (rootTitle) {
+          hook.doneEach(function () {
+            var currentTitle = titleElm.textContent;
+            var isRoot = !/\/[a-z]/.test(location.hash);
+            var newTitle = isRoot ? rootTitle : pageTitlePrefix + currentTitle;
+
+            titleElm.textContent = newTitle;
+          });
+        }
+      }
+    ]
   };
 </script>
 <script src="https://cdn.jsdelivr.net/npm/docsify@4"></script>
