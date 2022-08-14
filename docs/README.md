@@ -152,9 +152,8 @@ class LightGBM(BaseModel):
 #### The model inferencing on the given tracking dataset
 
 Joining the tracking dataset for the average BMI and daily step for the 8 users
-
-
-![daily_stat.png](assets/daily_stat.png)
+We first used the risk score model developed to infer the stroke risk score with the assumption that all of them are males and aged 50
+Then we applied the mortality rate on the daily step data as per below
 
 ```python
 def map_cardiovascular_mortality_rate(x):
@@ -173,12 +172,14 @@ avg_user_report_df["extra_cardic_mortality__rate"] = avg_user_report_df["prob_st
 avg_user_report_df.sort_values(by="extra_cardic_mortality__rate", ascending=True)
 ```
 
-Given the risk score model (lightGBM) just built and the studies from Saint-Maurice et al. (2020), we are able to infer the probability of getting a stroke and based on the daily step data we can apply the expected mortality rate.
-Finally, we can multiply the P(Stroke) and P(mortality | step data, cardiovascular disease) to produce a score of extra-mortality
+![inference_result.png](assets/inference_result.png)
+
+Given the risk score model (lightGBM) and the studies by Saint-Maurice et al. (2020), we are able to infer the probability of getting a stroke and based on the daily step data we can apply the expected mortality rate.
+Finally, we can multiply the P(Stroke| profile) and P(mortality | step data, cardiovascular) to produce a score of extra-mortality and this could be served for the customer wellness info as well as for UW fast track.
 
 ## Future Direction and current limitation
 
-In this study, we used the kaggle dataset to develop a stroke indication risk score model and use it as a proxy for health risk score. Also with the absence of the step data and the association to the incident rate, we have to rely on the extra studies to infer the health risk regarding the step data.
-In the future, we recommend leveraging on the claims data to rebuild the model and learn the direct correlations between the physical activity data and health risk
-Moreover, given there is no demographic distribution in the sample tracking data, we have made some assumptions on the distribution for the inferencing such as males age 50.
+* In this study, we used the kaggle dataset to develop a stroke indication risk score model and used it as a proxy for health risk score. Also, with the absence of the step data and the association between the incident rate and step data, we have to rely on the external studies to infer the health risk for the step data.
+* In the long term, we recommend relying on the claim & wearable dataset collected to rebuild the model and learn the direct correlations between the physical activity data and their assoicated health risk.
+* Moreover, given there is no demographic distribution in the sample tracking data, we have made some assumptions on the distribution such as male customers with age 50 years old.
 
