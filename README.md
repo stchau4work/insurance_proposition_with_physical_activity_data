@@ -182,18 +182,3 @@ In this study, we used the kaggle dataset to develop a stroke indication risk sc
 In the future, we recommend to leverage on the claims data to rebuild the model and learn the direct correlationship between the physical activity data and health risk
 Moreover, given there is no demographic distribution in the sample tracking data, we have made some assumption on the distribution for the inferencing such as male with age 50.
 
-# insurance_proposition_with_physical_-activity_data
-# insurance_proposition_with_physical_-activity_data
-# insurance_proposition_with_physical_-activity_data
-# insurance_proposition_with_physical_-activity_data
-# insurance_proposition_with_physical_-activity_data
-# insurance_proposition_with_physical_-activity_data
-# insurance_proposition_with_physical_-activity_data
-# insurance_proposition_with_physical_activity_data
-# insurance_proposition_with_physical_activity_data
-# insurance_proposition_with_physical_activity_data
-# insurance_proposition_with_physical_-activity_data
-# insurance_proposition_with_physical_-activity_data
-# insurance_proposition_with_physical_activity_data
-# insurance_proposition_with_physical_activity_data
-# insurance_proposition_with_physical_activity_data
