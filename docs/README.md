@@ -8,10 +8,10 @@
 <p>
 Insurance is sold, not bought. This statement is particularly true in the life insurance business in Asia.
 According to the Swiss Re Institute estimated in 2021, none of the Asian countries has life insurance penetration of more than one-fifth of its population and the two biggest markets China and India are covering as low as 2.4% and 3.2% respectively. 
-Despite insurers relying heavily on their well trained agency task force to identify new prospects, there are still many hurdles the agents need to go through to close the sales such as finding the right triggering point, explaining the product details and why the customers need it and assist the full medical underwriting process which may turn into a lengthy process to testify the real interest any new customers.
+Despite insurers relying heavily on their well trained agency task force to identify new prospects, there are still many hurdles the agents need to go through to close the sales such as finding the right triggering point, explaining the product details and why the customers need it and assist the full medical underwriting process which may turn into a lengthy process to testify the real interest of any new customers.
 </p>
 
-To address the pain points and smooth the whole sales journey, we propose to develop a proprietary risk score model to support AI use cases for predictive underwriting as well as actionable wellness information to the customers.
+To address the pain points, we propose a proprietary risk score model based on physical activity data extracted from smart wearables to smooth the sales journey as well as provide actionable wellness info back to the customers.
 
 ![ai_use_case.png](assets/ai_use_case.png)
 
