@@ -165,11 +165,10 @@ def map_cardiovascular_mortality_rate(x):
         return 2.1/1000
     elif x>=12000:
         return 1/1000
-    
 
-avg_user_report_df["mortality_rate_cardic"] = avg_user_report_df.avg_daily_step.apply(map_cardiovascular_mortality_rate)
-avg_user_report_df["extra_cardic_mortality__rate"] = avg_user_report_df["prob_stroke"]*avg_user_report_df["mortality_rate_cardic"]*100
-avg_user_report_df.sort_values(by="extra_cardic_mortality__rate", ascending=True)
+avg_user_report_df["mortality_rate_cardiac"] = avg_user_report_df.avg_daily_step.apply(map_cardiovascular_mortality_rate)
+avg_user_report_df["EM_cardiac"] = avg_user_report_df["prob_stroke"]*avg_user_report_df["mortality_rate_cardiac"]*100
+avg_user_report_df.sort_values(by="EM_cardiac", ascending=True)
 ```
 
 ![inference_result.png](assets/inference_result.png)
@@ -180,6 +179,6 @@ Finally, we can multiply the P(Stroke| profile) and P(mortality | step data, car
 ## Future Direction and current limitation
 
 * In this study, we used the kaggle dataset to develop a stroke indication risk score model and used it as a proxy for health risk score. Also, with the absence of the step data and the association between the incident rate and step data, we have to rely on the external studies to infer the health risk for the step data.
-* In the long term, we recommend relying on the claim & wearable dataset collected to rebuild the model and learn the direct correlations between the physical activity data and their assoicated health risk.
-* Moreover, given there is no demographic distribution in the sample tracking data, we have made some assumptions on the distribution such as male customers with age 50 years old.
+* In the long term, we recommend relying on the claim & wearable dataset collected to rebuild the model and learn the direct correlations between the physical activity data and their associated health risk.
+* Moreover, given there is no demographic distribution in the sample tracking data, we have made some assumptions on the distribution such as male customers with age 50 years old who are lived in US.
 
